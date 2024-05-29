@@ -1,0 +1,432 @@
+SQL> create table Coporation{
+  2  EMP_ID VARCHAR(10) PRIMARY KEY,
+  3  EMP_NAME CHAR(15),
+  4  EMP_LASTNAME CHAR(15),
+  5  EMP_LASTNAME CHAR(15)
+  6  }
+  7  ;
+create table Coporation{
+                       *
+ERROR at line 1:
+ORA-00911: invalid character 
+
+
+SQL> create table Coporation(
+  2  EMP_ID VARCHAR(10) PRIMARY KEY,
+  3  EMP_FIRST_NAME CHAR(15),
+  4  EMP_LAST_NAME CHAR(15),
+  5  DEPT_ID VARCHAR(10)M
+  6  );
+DEPT_ID VARCHAR(10)M
+                   *
+ERROR at line 5:
+ORA-00907: missing right parenthesis 
+
+
+SQL> create table Coporation(
+  2  EMP_ID VARCHAR(10) PRIMARY KEY,
+  3  EMP_FIRST_NAME CHAR(15),
+  4  EMP_LAST_NAME CHAR(15),
+  5  DEPT_ID VARCHAR(10),
+  6  POSITION_ID VARCHAR(10),
+  7  START_DATE DATE,
+  8  SUPERVISOR_ID INT
+  9  );
+
+Table created.
+
+SQL> desc Coperation;
+ERROR:
+ORA-04043: object Coperation does not exist 
+
+
+SQL> desc Coporation;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                    NOT NULL VARCHAR2(10)
+ EMP_FIRST_NAME                                     CHAR(15)
+ EMP_LAST_NAME                                      CHAR(15)
+ DEPT_ID                                            VARCHAR2(10)
+ POSITION_ID                                        VARCHAR2(10)
+ START_DATE                                         DATE
+ SUPERVISOR_ID                                      NUMBER(38)
+
+SQL> INSERT INTO Coporation ADD VALUES('1','ANISH','BHARGAV','CS001','HR','07-MARCH-2023','SR01');
+INSERT INTO Coporation ADD VALUES('1','ANISH','BHARGAV','CS001','HR','07-MARCH-2023','SR01')
+                       *
+ERROR at line 1:
+ORA-00926: missing VALUES keyword 
+
+
+SQL> INSERT INTO CoporationVALUES('1','ANISH','BHARGAV','CS001','HR','07-MARCH-2023','SR01');
+INSERT INTO CoporationVALUES('1','ANISH','BHARGAV','CS001','HR','07-MARCH-2023','SR01')
+                             *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> INSERT INTO Coporation VALUES('1','ANISH','BHARGAV','CS001','HR','07-MARCH-2023','SR01');
+INSERT INTO Coporation VALUES('1','ANISH','BHARGAV','CS001','HR','07-MARCH-2023','SR01')
+                                                                                 *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> INSERT INTO Coporation VALUES('1','ANISH','BHARGAV','CS001','HR','07-MARCH-2023','1');
+
+1 row created.
+
+SQL> INSERT INTO Coporation VALUES('2','AMRIT','SINGH','IT001','DEVELOPER','26-MARCH-2023','1001');
+
+1 row created.
+
+SQL> INSERT INTO Coporation VALUES('3','AVANISH','ANAND','IT002','DEVELOPER','12-MAY-2023','1002');
+
+1 row created.
+
+SQL> INSERT INTO Coporation VALUES('4','GAURAV','KUMAR','CS002','SOFTWARE ENG','15-AUGUST-2023','2');
+INSERT INTO Coporation VALUES('4','GAURAV','KUMAR','CS002','SOFTWARE ENG','15-AUGUST-2023','2')
+                                                           *
+ERROR at line 1:
+ORA-12899: value too large for column "CSE11"."COPORATION"."POSITION_ID" 
+(actual: 12, maximum: 10) 
+
+
+SQL> INSERT INTO Coporation VALUES('4','GAURAV','KUMAR','CS002','SOFT ENGG.','15-AUGUST-2023','2');
+
+1 row created.
+
+SQL> SELECT * FROM Coporation;
+
+EMP_ID     EMP_FIRST_NAME  EMP_LAST_NAME   DEPT_ID    POSITION_I START_DAT      
+---------- --------------- --------------- ---------- ---------- ---------      
+SUPERVISOR_ID                                                                   
+-------------                                                                   
+1          ANISH           BHARGAV         CS001      HR         07-MAR-23      
+            1                                                                   
+                                                                                
+2          AMRIT           SINGH           IT001      DEVELOPER  26-MAR-23      
+         1001                                                                   
+                                                                                
+3          AVANISH         ANAND           IT002      DEVELOPER  12-MAY-23      
+         1002                                                                   
+                                                                                
+
+EMP_ID     EMP_FIRST_NAME  EMP_LAST_NAME   DEPT_ID    POSITION_I START_DAT      
+---------- --------------- --------------- ---------- ---------- ---------      
+SUPERVISOR_ID                                                                   
+-------------                                                                   
+4          GAURAV          KUMAR           CS002      SOFT ENGG. 15-AUG-23      
+            2                                                                   
+                                                                                
+
+SQL> INSERT INTO Coporation VALUES('5','ARYAN','SAXENA','CS002','SOFT ENGG.','21-JULY-2023','3');
+
+1 row created.
+
+SQL> SELECT Coporation.EMP_FIRST_NAME , Coporation.DEPT_ID FROM Coporation INNER JOIN Coporation ON Coporation.EMP_FIRST_NAME = Coporation.DEPT_ID;
+SELECT Coporation.EMP_FIRST_NAME , Coporation.DEPT_ID FROM Coporation INNER JOIN Coporation ON Coporation.EMP_FIRST_NAME = Coporation.DEPT_ID
+                                   *
+ERROR at line 1:
+ORA-00918: column ambiguously defined 
+
+
+SQL> DROP TABEL COPORATION;
+DROP TABEL COPORATION
+     *
+ERROR at line 1:
+ORA-00950: invalid DROP option 
+
+
+SQL> DROP TABLE COPORATION;
+
+Table dropped.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> 
+SQL> 
+SQL> create table employees{
+  2  d;
+create table employees{
+                      *
+ERROR at line 1:
+ORA-00911: invalid character 
+
+
+SQL> create table employees(
+  2  id INT PRIMARY KEY,
+  3  EMP_FNAME CHAR(15),
+  4  EMP_LNAME CHAR(15),
+  5  SALAR NUMBER(10),
+  6  HIRE_DATE DATE,
+  7  DEPT_ID INT,
+  8  SUPERVISIOR_ID INT,
+  9  POSITION_ID INT,
+ 10  QUALIFICATION_ID INT
+ 11  );
+
+Table created.
+
+SQL> CREATE TBALE Department(
+  2  DEPT_ID INT PRIMARY KEY,
+  3  DEPT_NAME VARCHAR(10)
+  4  );
+CREATE TBALE Department(
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command 
+
+
+SQL> CREATE TABLE Department(
+  2  DEPT_ID INT PRIMARY KEY,
+  3  DEPT_NAME VARCHAR(10)
+  4  );
+
+Table created.
+
+SQL> INSERT INTO employees VALUES('1','ARYAN','SAXENA','20000','21-JULY-2023','1','1001','2401');
+INSERT INTO employees VALUES('1','ARYAN','SAXENA','20000','21-JULY-2023','1','1001','2401')
+            *
+ERROR at line 1:
+ORA-00947: not enough values 
+
+
+SQL> INSERT INTO employees VALUES('1','ARYAN','SAXENA','20000','21-JULY-2023','1','1001','2401');
+INSERT INTO employees VALUES('1','ARYAN','SAXENA','20000','21-JULY-2023','1','1001','2401')
+            *
+ERROR at line 1:
+ORA-00947: not enough values 
+
+
+SQL> INSERT INTO employees VALUES('1','ARYAN','SAXENA','20000','21-JULY-2023','1','1001','2001','2401');
+
+1 row created.
+
+SQL> INSERT INTO employees VALUES('2','ANISH','BHARVAG','30000','07-MARCH-2023','2','1002','2002','2402');
+
+1 row created.
+
+SQL> INSERT INTO employees VALUES('3','AMRIT','SINGH','40000','26-APRIL-2023','3','1003','2003','2403');
+
+1 row created.
+
+SQL> INSERT INTO Department VALUES('1','HR');
+
+1 row created.
+
+SQL> INSERT INTO Department VALUES('2','TECH TEAM');
+
+1 row created.
+
+SQL> INSERT INTO Department VALUES('3','CALL TEAM');
+
+1 row created.
+
+SQL> SELECT employees.EMP_FNAME,
+  2  Department.DEPT_NAME
+  3  FROM Employees
+  4  INNER JOIN Department
+  5  ON employees.DEPT_ID = Department.DEPT_ID;
+
+EMP_FNAME       DEPT_NAME                                                       
+--------------- ----------                                                      
+ARYAN           HR                                                              
+ANISH           TECH TEAM                                                       
+AMRIT           CALL TEAM                                                       
+
+SQL> commit
+  2  ;
+
+Commit complete.
+
+SQL> create table supervisor(
+  2  SUPERVISIOR_ID INT PRIMARY KEY,
+  3  SUPERVISIOR_NAME CHAR(10)
+  4  );
+
+Table created.
+
+SQL> INSERT INTO Department VALUES('1001','MAHESH');
+
+1 row created.
+
+SQL> INSERT INTO supervisor VALUES('1001','MAHESH');
+
+1 row created.
+
+SQL> INSERT INTO supervisor VALUES('1002','SURESH');
+
+1 row created.
+
+SQL> INSERT INTO supervisor VALUES('1003','RAM');
+
+1 row created.
+
+SQL> SELECT employees.EMP_ID,
+  2  supervisor.SUPERVISIOR_NAME
+  3  FROM supervisor
+  4  INNER JOIN employees
+  5  ON employees.SUPERVISIOR_ID = supervisior.SUPERVISIOR_ID;
+ON employees.SUPERVISIOR_ID = supervisior.SUPERVISIOR_ID
+                              *
+ERROR at line 5:
+ORA-00904: "SUPERVISIOR"."SUPERVISIOR_ID": invalid identifier 
+
+
+SQL> SELECT employees.EMP_ID,
+  2  supervisor.SUPERVISIOR_NAME
+  3  FROM supervisor
+  4  INNER JOIN employees
+  5  ON employees.SUPERVISIOR_ID = supervisor.SUPERVISIOR_ID;
+SELECT employees.EMP_ID,
+       *
+ERROR at line 1:
+ORA-00904: "EMPLOYEES"."EMP_ID": invalid identifier 
+
+
+SQL> SELECT supervisor.EMP_FNAME,
+  2  AS SUPERVISIOR_NAME
+  3  FROM EMPLOYEES AS EMPLOYEE
+  4  INNER JOIN EMPLOYEES AS SUPERVISOR ON EMPLOYEE.SUPERVISIOR_ID = SUPERVISOR.EMPLOYEE_ID;
+AS SUPERVISIOR_NAME
+*
+ERROR at line 2:
+ORA-00936: missing expression 
+SQL> select * from EMPLOYEES;
+
+        ID EMP_FNAME       EMP_LNAME            SALAR HIRE_DATE    DEPT_ID      
+---------- --------------- --------------- ---------- --------- ----------      
+SUPERVISIOR_ID POSITION_ID QUALIFICATION_ID                                     
+-------------- ----------- ----------------                                     
+         1 ARYAN           SAXENA               20000 21-JUL-23          1      
+          1001        2001             2401                                     
+                                                                                
+         2 ANISH           BHARVAG              30000 07-MAR-23          2      
+          1002        2002             2402                                     
+                                                                                
+         3 AMRIT           SINGH                40000 26-APR-23          3      
+          1003        2003             2403                                     
+                                                                                
+
+SQL> SELECT * FROM SUPERVISIOR;
+
+     SV_ID SV_NAME                                                              
+---------- ----------                                                           
+       430 ALEX                                                                 
+       431 FODEN                                                                
+       432 HAALAND                                                              
+       433 ALLISON                                                              
+
+SQL> SELECT SUPERVISIOR_ID
+  2  FROM EMPLOYEES
+  3  WHERE ID =(
+  4  SELECT ID
+  5  FROM EMPLOYEES
+  6  WHERE ID = 3
+  7  );
+
+SUPERVISIOR_ID                                                                  
+--------------                                                                  
+          1003                                                                  
+
+SQL> SELECT
+  2  E1.EMP_LNAME || ',' || E1.EMP_FNAME AS "EMPLOYEE FULL NAME",
+  3  E1.SALARY AS "EMPLOYEE SALARY",
+  4  E2.EMP_LNAME || ',' || E2.EMP_FNAME AS "SUPERVISIOR FULL NAME",
+  5  E2.SALARY AS "EMPLOYEE SALARY",
+  6  FROM
+  7  EMPLOYEES E1
+  8  INNER JOIN
+  9  EMPLOYEES E2 ON E1.SUPERVISIOR_ID = E2.ID;
+FROM
+*
+ERROR at line 6:
+ORA-00936: missing expression 
+
+
+SQL> SELECT
+  2  E1.EMP_LNAME || ',' || E1.EMP_FNAME AS "EMPLOYEE FULL NAME",
+  3  E1.SALARY AS "EMPLOYEE SALARY",
+  4  E2.EMP_LNAME || ',' || E2.EMP_FNAME AS "SUPERVISIOR FULL NAME",
+  5  E2.SALARY AS "EMPLOYEE SALARY"
+  6  FROM EMPLOYEES E1
+  7  INNER JOIN
+  8  EMPLOYEES E2 ON E1.SUPERVISIOR_ID = E2.ID;
+E2.SALARY AS "EMPLOYEE SALARY"
+*
+ERROR at line 5:
+ORA-00904: "E2"."SALARY": invalid identifier 
+
+
+SQL> SELECT
+  2  CONCAT(EMP_LNAME || ',' || EMP_FNAME) AS "EMPLOYEE FULL NAME",
+  3  SALARY AS "EMPLOYEE SALARY",
+  4  CONCAT SV_NAME AS "SUPERVISIOR SALARY"
+  5  FROM EMPLOYEES
+  6  JOIN SALARY ON ID = ID;
+CONCAT(EMP_LNAME || ',' || EMP_FNAME) AS "EMPLOYEE FULL NAME",
+*
+ERROR at line 2:
+ORA-00909: invalid number of arguments 
+
+
+SQL> SELECT CONCAT(e.EMP_LNAME || ',' || e.EMP_FNAME) AS EMP NAME,
+  2  s.salary AS E,P_SALARY,
+  3  CONCAT(SUPERVISIOR.EMP_LNAME || ',' || SUPERVISIOR.EMP_FNAME) AS SUERVISIOR_NAME
+  4  FROM EMPLOYEES
+  5  INNER JOIN SALARY ON EMPLOYEES.ID = SALARY.EMPLOYEES.ID
+  6  LEFT JOIN EMPLOYEES SUPERVISIORS ON EMPLOYEES.SUPERVISIOR_ID = SUPERVISIOR.ID;
+SELECT CONCAT(e.EMP_LNAME || ',' || e.EMP_FNAME) AS EMP NAME,
+       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments 
+
+
+SQL> 
+SQL> SELECT
+  2  CONCAT(EMPLOYEES.EMP_LNAME || ',' || EMPLOYEES.EMP_FNAME) AS "EMPLOYEE FULL NAME", salary
+  3  CASE
+  4  WHEN SALARY >= 15000 THEN 'HIGH'
+  5  WHEN SALARY >= 10000 AND SALARY < 15000 THEN 'MEDIUM'
+  6  ELSE 'LOW'
+  7  END AS SALARY_LEVEL
+  8  FROM EMPLOYEES
+  9  JOIN SALARY ON EMPLOYEES.ID = SALARY.ID;
+CONCAT(EMPLOYEES.EMP_LNAME || ',' || EMPLOYEES.EMP_FNAME) AS "EMPLOYEE FULL NAME", salary
+*
+ERROR at line 2:
+ORA-00909: invalid number of arguments 
+
+
+SQL> SELECT
+  2  CONCAT(EMPLOYEES.EMP_LNAME || ',' || EMPLOYEES.EMP_FNAME) AS EMPLOYEE FULL NAME, salary,
+  3  CASE
+  4  WHEN SALARY >= 15000 THEN 'HIGH'
+  5  WHEN SALARY >= 10000 AND SALARY < 15000 THEN 'MEDIUM'
+  6  ELSE 'LOW'
+  7  END AS SALARY_LEVEL
+  8  FROM EMPLOYEES;
+CONCAT(EMPLOYEES.EMP_LNAME || ',' || EMPLOYEES.EMP_FNAME) AS EMPLOYEE FULL NAME, salary,
+*
+ERROR at line 2:
+ORA-00909: invalid number of arguments 
+
+
+SQL> SELECT
+  2  CONCAT(EMPLOYEES.EMP_LNAME || ',' || EMPLOYEES.EMP_FNAME) AS EMPLOYEE FULL NAME, salary,
+  3  CASE
+  4  WHEN SALARY >= 15000 THEN 'HIGH'
+  5  WHEN SALARY >= 10000 AND SALARY < 15000 THEN 'MEDIUM'
+  6  ELSE 'LOW'
+  7  END AS SALARY_LEVEL
+  8  FROM EMPLOYEES;
+CONCAT(EMPLOYEES.EMP_LNAME || ',' || EMPLOYEES.EMP_FNAME) AS EMPLOYEE FULL NAME, salary,
+*
+ERROR at line 2:
+ORA-00909: invalid number of arguments 
+
+
+SQL> SPOOL OFF;

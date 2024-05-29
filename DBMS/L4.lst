@@ -1,0 +1,26 @@
+SQL> set autocommit on;
+SQL> desc Employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                    NOT NULL VARCHAR2(10)
+ LAST_NAME                                          CHAR(10)
+ FIRST_NAME                                         CHAR(10)
+ SALARY                                             NUMBER(10)
+ COMMISSION                                         NUMBER(10)
+
+SQL> select* from student;
+select* from student
+             *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select* from Employee;
+
+EMP_ID     LAST_NAME  FIRST_NAME     SALARY COMMISSION                          
+---------- ---------- ---------- ---------- ----------                          
+1          Rooney     Wayne           30000          0                          
+2          Messi      Leo            130000      10000                          
+3          Jr.        Neymar         100000       1000                          
+
+SQL> spool off;

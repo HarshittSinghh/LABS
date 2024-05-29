@@ -1,0 +1,341 @@
+SQL> create table Employees_2118(
+  2  ENO INT PRIMARY KEY,
+  3  ENAME CHAR(10),
+  4  ZIP NUMBER,
+  5  HDATE DATE
+  6  );
+
+Table created.
+
+SQL> INSERT INTO Employees_2118('1','Harshit','222140',20-March-2023);
+INSERT INTO Employees_2118('1','Harshit','222140',20-March-2023)
+                           *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> INSERT INTO Employees_2118 VALUES('1','Harshit','222140',20-March-2023);
+INSERT INTO Employees_2118 VALUES('1','Harshit','222140',20-March-2023)
+                                                            *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> INSERT INTO Employees_2118 VALUES('1','Harshit','222140','20-March-2023');
+
+1 row created.
+
+SQL> INSERT INTO Employees_2118 VALUES('2','ANISH','222141','07-March-2022');
+
+1 row created.
+
+SQL> INSERT INTO Employees_2118 VALUES('3','AMRIT','222142','07-APRIL-2022');
+
+1 row created.
+
+SQL> SELECT * FROM Employees_2118;
+
+       ENO ENAME             ZIP HDATE                                          
+---------- ---------- ---------- ---------                                      
+         1 Harshit        222140 20-MAR-23                                      
+         2 ANISH          222141 07-MAR-22                                      
+         3 AMRIT          222142 07-APR-22                                      
+
+SQL> create table Parts(
+  2  PNO INT PRIMARY KEY,
+  3  PNAME VARCHAR(10),
+  4  PRICE NUMBER,
+  5  LEVEL VARCHAR
+  6  );
+LEVEL VARCHAR
+*
+ERROR at line 5:
+ORA-00904: : invalid identifier 
+
+
+SQL> create table Parts(
+  2  PNO INT PRIMARY KEY,
+  3  PNAME VARCHAR(10),
+  4  PRICE NUMBER,
+  5  LEVEL VARCHAR(10)
+  6  );
+LEVEL VARCHAR(10)
+*
+ERROR at line 5:
+ORA-00904: : invalid identifier 
+
+
+SQL> create table Parts(
+  2  PNO INT PRIMARY KEY,
+  3  PNAME VARCHAR(10),
+  4  PRICE NUMBER,
+  5  LEVEL NUMBER
+  6  );
+LEVEL NUMBER
+*
+ERROR at line 5:
+ORA-00904: : invalid identifier 
+
+
+SQL> create table Parts(
+  2  PNO INT PRIMARY KEY,
+  3  PNAME VARCHAR(10),
+  4  PRICE NUMBER,
+  5  LVL NUMBER
+  6  );
+
+Table created.
+
+SQL> INSERT INTO Parts VALUES('1','P1','1000','1');
+
+1 row created.
+
+SQL> INSERT INTO Parts VALUES('2','P2','2000','4');
+
+1 row created.
+
+SQL> INSERT INTO Parts VALUES('3','P3','3000','2');
+
+1 row created.
+
+SQL> create table Customers(
+  2  CNO INT PRIMARY KEY,
+  3  CNAME CHAR(10),
+  4  STREET VARCHAR(15),
+  5  ZIP NUMBER,
+  6  PHONE NUMBER
+  7  );
+
+Table created.
+
+SQL> INSERT INTO Customers VALUES('1','A','S1','1','9192939495');
+
+1 row created.
+
+SQL> INSERT INTO Customers VALUES('2','B','S2','2','8182838485');
+
+1 row created.
+
+SQL> INSERT INTO Customers VALUES('3','C','S3','3','7172737475');
+
+1 row created.
+
+SQL> create table order(
+  2  ONO INT PRIMARY KEY,
+  3  CNO INT,
+  4  ENO INT,
+  5  RCVR_DATE DATE,
+  6  SHIPPED_DATE DATE
+  7  );
+create table order(
+             *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> create table Orders(
+  2  ONO INT PRIMARY KEY,
+  3  CNO INT,
+  4  ENO INT,
+  5  RCVR_DATE DATE,
+  6  );
+)
+*
+ERROR at line 6:
+ORA-00904: : invalid identifier 
+
+
+SQL> create table Orders(
+  2  ONO INT PRIMARY KEY,
+  3  CNO INT,
+  4  ENO INT,
+  5  RCVR_DATE DATE,
+  6  SHIPPED_DATE DATE
+  7  );
+
+Table created.
+
+SQL> INSERT INTO Orders VALUES('1','1','1','03-April-2024','27-MARCH-2024');
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES('2','2','2','03-April-2024','27-MARCH-2024');
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES('3','3','3','03-April-2024','27-MARCH-2024');
+
+1 row created.
+
+SQL> select * from Orders;
+
+       ONO        CNO        ENO RCVR_DATE SHIPPED_D                            
+---------- ---------- ---------- --------- ---------                            
+         1          1          1 03-APR-24 27-MAR-24                            
+         2          2          2 03-APR-24 27-MAR-24                            
+         3          3          3 03-APR-24 27-MAR-24                            
+
+SQL> create table Order_Details(
+  2  ONO INT,
+  3  PNO INT,
+  4  QTY INT
+  5  );
+
+Table created.
+
+SQL> INSERT INTO Order_Details(
+  2  ONO INT,
+  3  ;
+ONO INT,
+    *
+ERROR at line 2:
+ORA-00917: missing comma 
+
+
+SQL> INSERT INTO Order_Details(
+  2  '1','1','1');
+'1','1','1')
+*
+ERROR at line 2:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> INSERT INTO Order_Details VALUES('1','1','1');
+
+1 row created.
+
+SQL> INSERT INTO Order_Details VALUES('2','2','2');
+
+1 row created.
+
+SQL> INSERT INTO Order_Details VALUES('3','3','3');
+
+1 row created.
+
+SQL> create table ZIPCODES(
+  2  ZIP NUMBER,
+  3  CITY CHAR(10),
+  4  STATE CHAR(10)
+  5  );
+
+Table created.
+
+SQL> INSERT INTO ZIPCODE VALUES(
+  2  '121','BBSR','ODISHA');
+INSERT INTO ZIPCODE VALUES(
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> INSERT INTO ZIPCODES VALUES(
+  2  '121','BBSR','ODISHA');
+
+1 row created.
+
+SQL> INSERT INTO ZIPCODE VALUES(
+  2  
+SQL> ;
+  1* INSERT INTO ZIPCODE VALUES(
+SQL> INSERT INTO ZIPCODE VALUES('2112','VNS','UTTARPRADESH');
+INSERT INTO ZIPCODE VALUES('2112','VNS','UTTARPRADESH')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> INSERT INTO ZIPCODES VALUES('2112','VNS','UTTARPRADESH');
+INSERT INTO ZIPCODES VALUES('2112','VNS','UTTARPRADESH')
+                                         *
+ERROR at line 1:
+ORA-12899: value too large for column "CSE11"."ZIPCODES"."STATE" (actual: 12, 
+maximum: 10) 
+
+
+SQL> INSERT INTO ZIPCODES VALUES('2112','VNS','UTTAR PRADESH');
+INSERT INTO ZIPCODES VALUES('2112','VNS','UTTAR PRADESH')
+                                         *
+ERROR at line 1:
+ORA-12899: value too large for column "CSE11"."ZIPCODES"."STATE" (actual: 13, 
+maximum: 10) 
+
+
+SQL> INSERT INTO ZIPCODES VALUES('2112','VNS','UP');
+
+1 row created.
+
+SQL> INSERT INTO ZIPCODES VALUES('2113','JNP','UP');
+
+1 row created.
+
+SQL> INSERT INTO ZIPCODES VALUES('2114','AVX','LSA');
+
+1 row created.
+
+SQL> SELECT ENAME , EMPLOYEES FROM EMPLOYEES;
+SELECT ENAME , EMPLOYEES FROM EMPLOYEES
+               *
+ERROR at line 1:
+ORA-00904: "EMPLOYEES": invalid identifier 
+ CREATE TABLE Employee (
+    Eid INT PRIMARY KEY,
+    DepartmentNo INT,
+    Salary DECIMAL(10, 2)
+);
+
+INSERT INTO Employee (Eid, DepartmentNo, Salary)
+VALUES
+    (1, 101, 50000),
+    (2, 101, 55000),
+    (3, 101, 60000),
+    (4, 102, 48000),
+    (5, 102, 52000),
+    (6, 102, 58000),
+    (7, 103, 51000),
+    (8, 103, 56000),
+    (9, 103, 62000);
+
+SQL> SELECT Eid
+FROM Employee
+WHERE Salary = (SELECT MAX(Salary) FROM Employee);
+
+            
+SQL> SELECT DepartmentNo, Eid
+FROM (
+    SELECT DepartmentNo, Eid, Salary,
+           ROW_NUMBER() OVER (PARTITION BY DepartmentNo ORDER BY Salary DESC) AS RowNum
+    FROM Employee )Ranked
+WHERE RowNum = 1;
+
+ SQL> INSERT INTO Student (Sid, Age, Sex)
+VALUES
+    ('S1', 20, 'M'),
+    ('S2', 22, 'F'),
+    ('S3', 21, 'M'),
+    ('S4', 19, 'F');
+SQL> INSERT INTO Course (Cid, Faculty)
+VALUES
+    ('C1', 'A'),
+    ('C2', 'B'),
+    ('C3', 'A'),
+    ('C4', 'B'),
+    ('C5', 'A'),
+    ('C6', 'B'),
+    ('C7', 'C');
+SQL>INSERT INTO Enroll (Sid, Cid)
+VALUES
+    ('S1', 'C1'),
+    ('S1', 'C2'),
+    ('S1', 'C3'),
+    ('S2', 'C1'),
+    ('S2', 'C2'),
+    ('S2', 'C4'),
+    ('S3', 'C1'),
+    ('S3', 'C5'),
+    ('S4', 'C6');
+
+SQL>SELECT E.Sid FROM Enroll E JOIN Course C ON E.Cid = C.Cid  WHERE C.Faculty = 'A' GROUP BY E.Sid HAVING COUNT(DISTINCT E.Cid) > ( SELECT COUNT(DISTINCT E2.Cid) FROM Enroll E2 JOIN Course C2 ON E2.Cid = C2.Cid WHERE C2.Faculty = 'B');     
+
+SQL>SELECT E.Sid FROM Student S WHERE NOT EXISTS (SELECT C.Cid FROM Course C WHERE C.Faculty IN ('A', 'B') AND NOT EXISTS ( SELECT 1  FROM Enroll E2              WHERE E2.Sid = S.Sid AND E2.Cid = C.Cid ));
+
+SQL> Spool off;

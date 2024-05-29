@@ -1,0 +1,27 @@
+SQL> SET SERVEROUTPUT ON;
+SQL> DECLARE
+  2          AREA REAL;
+  3  	RADIUS NUMBER(5);
+  4  	PI NUMBER(5,2):=3.14;
+  5  BEGIN
+  6  	RADIUS:=&RADIUS;
+  7  	AREA:= PI*RADIUS*RADIUS;
+  8  	DBMS_OUTPUT.PUT_LINE(AREA);
+  9  END;
+ 10  /
+Enter value for radius: 5
+old   6: 	RADIUS:=&RADIUS;
+new   6: 	RADIUS:=5;
+78.5                                                                            
+
+PL/SQL procedure successfully completed.
+
+SQL> BEGIN
+  2  DBMS_OUTPUT.PUT_LINE('Hello World');
+  3  END;
+  4  /
+Hello World                                                                     
+
+PL/SQL procedure successfully completed.
+
+SQL> SPOOL OFF;

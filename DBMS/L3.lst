@@ -1,0 +1,189 @@
+SQL> create table employees(
+  2  lastname varchar(10);
+lastname varchar(10)
+                   *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> create table employees(
+  2  lname char(10),
+  3  fname char(10),
+  4  salary number(10),
+  5  );
+)
+*
+ERROR at line 5:
+ORA-00904: : invalid identifier 
+
+
+SQL> create table employees(
+  2  lastname varchar(10);
+lastname varchar(10)
+                   *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> create table employees(
+  2  lastname varchar(10);
+lastname varchar(10)
+                   *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> create table employees(
+  2  lastname varchar(10),
+  3  fname char(10),
+  4  salary number(10)
+  5  );
+
+Table created.
+
+SQL> insert into employees values('singh','radha',1500000);
+
+1 row created.
+
+SQL> insert into employees values('mohan','shyam',1800000);
+
+1 row created.
+
+SQL> desc employees;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LASTNAME                                           VARCHAR2(10)
+ FNAME                                              CHAR(10)
+ SALARY                                             NUMBER(10)
+
+SQL> select * from employees;
+
+LASTNAME   FNAME          SALARY                                                
+---------- ---------- ----------                                                
+singh      radha         1500000                                                
+mohan      shyam         1800000                                                
+
+SQL> SELECT
+  2  CONCAT(lastname, ',', firstname) AS radha singh,
+  3  1500000 AS salary FROM employees table;
+CONCAT(lastname, ',', firstname) AS radha singh,
+*
+ERROR at line 2:
+ORA-00909: invalid number of arguments 
+
+
+SQL> CONCAT(lastname, ',', firstname) AS radha singh,
+SP2-0734: unknown command beginning "CONCAT(las..." - rest of line ignored.
+SQL> 
+SQL> CONCAT(lastname, ',', firstname) AS "radha singh",
+SP2-0734: unknown command beginning "CONCAT(las..." - rest of line ignored.
+SQL> create table employee(
+  2  fname char(10),
+  3  lastname varchar(10),
+  4  salary number(10),
+  5  comiision number(10)
+  6  );
+
+Table created.
+
+SQL> insert into employee('radha','mohan',120000,10000);
+insert into employee('radha','mohan',120000,10000)
+                     *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> insert into employee values('radha','mohan',120000,10000);
+
+1 row created.
+
+SQL> insert into employee values('ram','singh',150000,11000);
+
+1 row created.
+
+SQL> select * from employee;
+
+FNAME      LASTNAME       SALARY  COMIISION                                     
+---------- ---------- ---------- ----------                                     
+radha      mohan          120000      10000                                     
+ram        singh          150000      11000                                     
+
+SQL> select * from employee where comiision IS NULL OR comiision=0;
+
+no rows selected
+
+SQL> select * from employee where comiision IS NULL OR comiision=10000;
+
+FNAME      LASTNAME       SALARY  COMIISION                                     
+---------- ---------- ---------- ----------                                     
+radha      mohan          120000      10000                                     
+
+SQL> ALTER table employee ADD(city char(10));
+
+Table altered.
+
+SQL> UPDATE employee SET city='delhi' WHERE salary=10000;
+
+0 rows updated.
+
+SQL> UPDATE employee SET city='delhi' WHERE fname='radha';
+
+1 row updated.
+
+SQL> UPDATE employee SET city='up' WHERE fname='ram';
+
+1 row updated.
+
+SQL> desc employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FNAME                                              CHAR(10)
+ LASTNAME                                           VARCHAR2(10)
+ SALARY                                             NUMBER(10)
+ COMIISION                                          NUMBER(10)
+ CITY                                               CHAR(10)
+
+SQL> select * from employee;
+
+FNAME      LASTNAME       SALARY  COMIISION CITY                                
+---------- ---------- ---------- ---------- ----------                          
+radha      mohan          120000      10000 delhi                               
+ram        singh          150000      11000 up                                  
+
+SQL> SELECT * from employee WHERE city IN('up');
+
+FNAME      LASTNAME       SALARY  COMIISION CITY                                
+---------- ---------- ---------- ---------- ----------                          
+ram        singh          150000      11000 up                                  
+
+SQL> ALTER table employee ADD(fname varchar(10));
+ALTER table employee ADD(fname varchar(10))
+                         *
+ERROR at line 1:
+ORA-01430: column being added already exists in table 
+
+
+SQL> ALTER table employee ADD(faname varchar(10));
+
+Table altered.
+
+SQL> UPDATE employee SET faname='computer' WHERE salary=10000;
+
+0 rows updated.
+
+SQL> UPDATE employee SET faname='computer' WHERE city='delhi';
+
+1 row updated.
+
+SQL> UPDATE employee SET faname='computer' WHERE city='up';
+
+1 row updated.
+
+SQL> select * from employee where faname like 'c%';
+
+FNAME      LASTNAME       SALARY  COMIISION CITY       FANAME                   
+---------- ---------- ---------- ---------- ---------- ----------               
+radha      mohan          120000      10000 delhi      computer                 
+ram        singh          150000      11000 up         computer                 
+
+SQL> spool off;

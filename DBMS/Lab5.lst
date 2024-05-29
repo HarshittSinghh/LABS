@@ -1,0 +1,199 @@
+SQL> select * from supervisors;
+select * from supervisors
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select * from SUPERVISOR;
+
+no rows selected
+
+SQL> SELECT * FROM EMPLOYEE;
+
+EMP_ID     LAST_NAME  FIRST_NAME     SALARY COMMISSION                          
+---------- ---------- ---------- ---------- ----------                          
+1          Rooney     Wayne           30000          0                          
+2          Messi      Leo            130000      10000                          
+3          Jr.        Neymar         100000       1000                          
+
+SQL> SELECT * FROM EMPLOYEES;
+
+        ID EMP_FNAME       EMP_LNAME            SALAR HIRE_DATE    DEPT_ID      
+---------- --------------- --------------- ---------- --------- ----------      
+SUPERVISIOR_ID POSITION_ID QUALIFICATION_ID                                     
+-------------- ----------- ----------------                                     
+         1 ARYAN           SAXENA               20000 21-JUL-23          1      
+          1001        2001             2401                                     
+                                                                                
+         2 ANISH           BHARVAG              30000 07-MAR-23          2      
+          1002        2002             2402                                     
+                                                                                
+         3 AMRIT           SINGH                40000 26-APR-23          3      
+          1003        2003             2403                                     
+                                                                                
+
+SQL> SELECT * FROM SUPERVIVISOR;
+SELECT * FROM SUPERVIVISOR
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> SELECT * FROM SUPERVIVIOR;
+SELECT * FROM SUPERVIVIOR
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> desc SUPERVISOR;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SUPERVISIOR_ID                            NOT NULL NUMBER(38)
+ SUPERVISIOR_NAME                                   CHAR(10)
+
+SQL> drop table SUPERVISOR;
+
+Table dropped.
+
+SQL> create table SUPERVISIOR(
+  2  SV_ID	NUMBER(20) PRIMARY KEY,
+  3  SV_NAME	CHAR(10)
+  4  );
+
+Table created.
+
+SQL> INSERT INTO SUPERVISIOR VALUES('430','ALEX');
+
+1 row created.
+
+SQL> INSERT INTO SUPERVISIOR VALUES('431','FODEN');
+
+1 row created.
+
+SQL> INSERT INTO SUPERVISIOR VALUES('432','HAALAND');
+
+1 row created.
+
+SQL> INSERT INTO SUPERVISIOR VALUES('433','ALLISON');
+
+1 row created.
+
+SQL> SELECT SUPERVISIOR FROM EMPLOYEE WHERE = (
+  2  SELECT EMP_ID
+  3  FROM EMPLOYEES
+  4  WHERE EMP_ID =433
+  5  ;
+SELECT SUPERVISIOR FROM EMPLOYEE WHERE = (
+                                       *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> SELECT * FROM EMPLOYEES;
+
+        ID EMP_FNAME       EMP_LNAME            SALAR HIRE_DATE    DEPT_ID      
+---------- --------------- --------------- ---------- --------- ----------      
+SUPERVISIOR_ID POSITION_ID QUALIFICATION_ID                                     
+-------------- ----------- ----------------                                     
+         1 ARYAN           SAXENA               20000 21-JUL-23          1      
+          1001        2001             2401                                     
+                                                                                
+         2 ANISH           BHARVAG              30000 07-MAR-23          2      
+          1002        2002             2402                                     
+                                                                                
+         3 AMRIT           SINGH                40000 26-APR-23          3      
+          1003        2003             2403                                     
+                                                                                
+
+SQL> SELECT SUPERVISIOR
+  2  FROM EMPLOYEE
+  3  ;
+SELECT SUPERVISIOR
+       *
+ERROR at line 1:
+ORA-00904: "SUPERVISIOR": invalid identifier 
+
+
+SQL> SELECT SUPERVISIOR
+  2  FROM EMPLOYEES
+  3  WHERE ID
+  4  FROM EMPLOYEES
+  5  WHERE ID =2;
+FROM EMPLOYEES
+*
+ERROR at line 4:
+ORA-00920: invalid relational operator 
+
+
+SQL> desc EMPLOYEES;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(38)
+ EMP_FNAME                                          CHAR(15)
+ EMP_LNAME                                          CHAR(15)
+ SALAR                                              NUMBER(10)
+ HIRE_DATE                                          DATE
+ DEPT_ID                                            NUMBER(38)
+ SUPERVISIOR_ID                                     NUMBER(38)
+ POSITION_ID                                        NUMBER(38)
+ QUALIFICATION_ID                                   NUMBER(38)
+
+SQL> FROM SUPERVISIOR FROM EMPLOYEES WHERE ID =
+SP2-0734: unknown command beginning "FROM SUPER..." - rest of line ignored.
+SQL> SELECT SUPERVISIOR FROM EMPLOYEES WHERE ID =
+  2  (
+  3  SELECT ID
+  4  FROM EMPLOYEES
+  5  WHERE ID = 2
+  6  );
+SELECT SUPERVISIOR FROM EMPLOYEES WHERE ID =
+       *
+ERROR at line 1:
+ORA-00904: "SUPERVISIOR": invalid identifier 
+
+
+SQL> SELECT * FROM SUPERVISIOR;
+
+     SV_ID SV_NAME                                                              
+---------- ----------                                                           
+       430 ALEX                                                                 
+       431 FODEN                                                                
+       432 HAALAND                                                              
+       433 ALLISON                                                              
+
+SQL> SELECT SUPERVISIOR_ID FROM EMPLOYEES WHERE ID =
+  2  (
+  3  SELECT ID\
+  4  SELECT * FROM SUPERVISIOR;
+SELECT ID\
+         *
+ERROR at line 3:
+ORA-00911: invalid character 
+
+
+SQL> 
+SQL> 
+SQL> SAD
+SP2-0042: unknown command "SAD" - rest of line ignored.
+SQL> 'SZ
+SP2-0042: unknown command "'SZ" - rest of line ignored.
+SQL> F'SQADF][AWLF
+SP2-0734: unknown command beginning "F'SQADF][A..." - rest of line ignored.
+SQL> E2L	FKO
+SP2-0042: unknown command "E2L	FKO" - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> SELECT SUPERVISIOR_ID FROM EMPLOYEES WHERE ID =(
+  2  FROM EMPLOYEES
+  3  WHERE ID = 3
+  4  )
+  5  ;
+FROM EMPLOYEES
+*
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> SPOOL OFF;

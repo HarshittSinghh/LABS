@@ -1,0 +1,213 @@
+SQL> desc Employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                    NOT NULL VARCHAR2(10)
+ LAST_NAME                                          CHAR(10)
+ FIRST_NAME                                         CHAR(10)
+ SALARY                                             NUMBER(10)
+ COMMISSION                                         NUMBER(10)
+
+SQL> select *from employee;
+
+EMP_ID     LAST_NAME  FIRST_NAME     SALARY COMMISSION                          
+---------- ---------- ---------- ---------- ----------                          
+1          Rooney     Wayne           30000          0                          
+2          Messi      Leo            130000      10000                          
+3          Jr.        Neymar         100000       1000                          
+
+SQL> select First_name ||' , ' || Last_name from Employee;
+
+FIRST_NAME||','||LAST_N                                                         
+-----------------------                                                         
+Wayne      , Rooney                                                             
+Leo        , Messi                                                              
+Neymar     , Jr.                                                                
+
+
+SQL> SELECT
+  2  EMP_ID,
+  3  FIRST_NAME,
+  4  COALESCE(commission , 0) AS commission
+  5  FROM employee;
+
+EMP_ID     FIRST_NAME COMMISSION                                                
+---------- ---------- ----------                                                
+1          Wayne               0                                                
+2          Leo             10000                                                
+3          Neymar           1000                                                
+
+SQL> desc ROOM;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROOM_TYPE                                          VARCHAR2(40)
+ ROOM_DESC                                          CHAR(50)
+
+SQL> Select * from ROOM;
+
+ROOM_TYPE                                                                       
+----------------------------------------                                        
+ROOM_DESC                                                                       
+--------------------------------------------------                              
+Single Bedded                                                                   
+Non-AC                                                                          
+                                                                                
+Single Bedded                                                                   
+AC                                                                              
+                                                                                
+2-Bedded                                                                        
+AC                                                                              
+                                                                                
+
+ROOM_TYPE                                                                       
+----------------------------------------                                        
+ROOM_DESC                                                                       
+--------------------------------------------------                              
+2-Bedded                                                                        
+NON-AC                                                                          
+                                                                                
+3-Bedded                                                                        
+NON-AC                                                                          
+                                                                                
+3-Bedded                                                                        
+AC                                                                              
+                                                                                
+
+6 rows selected.
+
+SQL> SELECT COUNT(ROOM_TYPE) FROM ROOM;
+
+COUNT(ROOM_TYPE)                                                                
+----------------                                                                
+               6                                                                
+SQL> SELECT COUNT(DISTINCT ROOM_DESC) FROM ROOM;
+
+COUNT(DISTINCTROOM_DESC)                                                        
+------------------------                                                        
+                       3  
+                    
+SQL> select first_name , last_name , to char(DOB,'DDMONTH,YYYY') AS BIRTHDATE FROM STUDENT1;
+select first_name , last_name , to char(DOB,'DDMONTH,YYYY') AS BIRTHDATE FROM STUDENT1
+                                *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select first_name , last_name , to_char(DOB,'DDMONTH,YYYY') AS BIRTHDATE FROM STUDENT1;
+
+FIRST_NAME                     LAST_NAME		BIRTHDATE
+----------------------------  ----------------------  --------------------------------
+Harshit                        Singh			05MARCH    ,2003
+
+Puneet                         Raghu			27JULY     ,1998
+
+Rahul                          Singh			25JULY     ,1998
+
+Gaurav                         Kumar			15AUGUST   ,2003
+
+Anish                          Bhargav			07AUGUST   ,2003
+                                  
+SQL> desc student1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                NOT NULL VARCHAR2(10)
+ FIRST_NAME                                         CHAR(30)
+ LAST_NAME                                          CHAR(30)
+ CITY                                               CHAR(30)
+ STATE                                              CHAR(30)
+ ZIP                                                NUMBER(10)
+ DOB                                                DATE
+ FACULTY_ID                                         VARCHAR2(20)
+ MAJOR_ID                                           VARCHAR2(20)
+ PHONE                                              NUMBER(10)
+
+SQL> select Student_id , First_Name , Last_Name , to_char(DOB ,'DDMONTHYYY') AS DOB from  student1;
+
+STUDENT_ID   FIRST_NAME         LAST_NAME          DOB          
+----------  ------------------ ----------------   -------------                                 
+EMP1       Harshit                 Singh 	  05 MARCH, 2003                                                                  
+                                                                                
+EMP2       Puneet                  Raghu          27 JULY, 1998                                                                  
+                                                                                
+EMP3       Rahul                   Singh          25 JULY, 1998                                                                  
+                                                                                                      
+EMP4       Gaurav                  Kumar          15 AUGUST, 2003                                                                  
+                                                                                
+EMP5       Anish                   Bhargav        07 AUGUST, 2003                                                                  
+                                                                               
+
+SQL> SELECT
+  2      AVG(age) AS average_age,
+  3      MAX(age) AS highest_age,
+  4      MIN(age) AS lowest_age
+  5  FROM
+  6      students;
+    students
+ 
+
+
+SQL> SELECT  AVG(salary) from employee;
+
+AVG(SALARY)                                                                     
+-----------                                                                     
+ 86666.6667                                                                     
+
+SQL> select max(salary) from employee;
+
+MAX(SALARY)                                                                     
+-----------                                                                     
+     130000                                                                     
+
+SQL> select min(salary) from employee;
+
+MIN(SALARY)                                                                     
+-----------                                                                     
+      30000                                                                     
+
+SQL> desc faculty;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FACULTY_ID                                NOT NULL VARCHAR2(20)
+ NAME                                               CHAR(20)
+ ROOM_ID                                            VARCHAR2(20)
+ PHONE                                              NUMBER(10)
+ DEPID                                              VARCHAR2(10)
+
+SQL> select count(distinct depid) as count from faculty;
+
+     COUNT                                                                      
+----------                                                                      
+         4                                                                      
+
+SQL> select *from employee;
+
+EMP_ID     LAST_NAME  FIRST_NAME     SALARY COMMISSION                          
+---------- ---------- ---------- ---------- ----------                          
+1          Rooney     Wayne           30000          0                          
+2          Messi      Leo            130000      10000                          
+3          Jr.        Neymar         100000       1000                          
+
+SQL> select avg(NVL(commission , NULL)) FROM Employee;
+
+AVG(NVL(COMMISSION,NULL))                                                       
+-------------------------                                                       
+               3666.66667                                                       
+
+SQL> select avg(NVL(commission ,0)) FROM Employee;
+
+AVG(NVL(COMMISSION,0))                                                          
+----------------------                                                          
+            3666.66667                                                          
+
+SQL> SELECT POWER (2,10) from dual;
+
+POWER(2,10)                                                                     
+-----------                                                                     
+       1024                                                                     
+
+SQL> SELECT POWER (2,10) from dual;
+
+POWER(2,10)                                                                     
+-----------                                                                     
+       1024                                                                     
+
+SQL> spool off;
